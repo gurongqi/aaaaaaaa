@@ -1,0 +1,25 @@
+controller_list:
+  - name: fake_right_hand_controller
+    joints:
+      - joint_right_hand_1
+      - joint_right_hand_2
+      - joint_right_hand_3
+  - name: fake_left_hand_controller
+    joints:
+      - joint_left_hand_1
+      - joint_left_hand_2
+      - joint_left_hand_3
+  - name: fake_right_leg_controller
+    joints:
+      - joint_right_leg_1
+      - joint_right_leg_2
+      - joint_right_leg_3
+      - joint_right_leg_4
+      - joint_right_leg_5
+  - name: fake_left_leg_controller
+    joints:
+      - joint_left_leg_1
+      - joint_left_leg_2
+      - joint_left_leg_3
+      - joint_left_leg_4
+      - joint_left_leg_5

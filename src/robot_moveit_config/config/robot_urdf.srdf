@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="robot_urdf">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="right_hand">
+        <link name="right_hand_1" />
+        <link name="right_hand_2" />
+        <link name="right_hand_3" />
+        <joint name="joint_right_hand_1" />
+        <joint name="joint_right_hand_2" />
+        <joint name="joint_right_hand_3" />
+    </group>
+    <group name="left_hand">
+        <link name="left_hand_1" />
+        <link name="left_hand_2" />
+        <link name="left_hand_3" />
+        <joint name="joint_left_hand_1" />
+        <joint name="joint_left_hand_2" />
+        <joint name="joint_left_hand_3" />
+    </group>
+    <group name="right_leg">
+        <link name="right_leg_1" />
+        <link name="right_leg_2" />
+        <link name="right_leg_3" />
+        <link name="right_leg_4" />
+        <link name="right_leg_5" />
+        <joint name="joint_right_leg_1" />
+        <joint name="joint_right_leg_2" />
+        <joint name="joint_right_leg_3" />
+        <joint name="joint_right_leg_4" />
+        <joint name="joint_right_leg_5" />
+    </group>
+    <group name="left_leg">
+        <link name="left_leg_1" />
+        <link name="left_leg_2" />
+        <link name="left_leg_3" />
+        <link name="left_leg_4" />
+        <link name="left_leg_5" />
+        <joint name="joint_left_leg_1" />
+        <joint name="joint_left_leg_2" />
+        <joint name="joint_left_leg_3" />
+        <joint name="joint_left_leg_4" />
+        <joint name="joint_left_leg_5" />
+    </group>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="robot_base" type="floating" parent_frame="odom" child_link="base_link" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="head_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="left_hand_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="left_leg_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="left_leg_3" reason="Never" />
+    <disable_collisions link1="base_link" link2="right_hand_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="right_leg_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="right_leg_3" reason="Never" />
+    <disable_collisions link1="head_1" link2="left_hand_1" reason="Never" />
+    <disable_collisions link1="head_1" link2="left_leg_1" reason="Never" />
+    <disable_collisions link1="head_1" link2="left_leg_2" reason="Never" />
+    <disable_collisions link1="head_1" link2="left_leg_3" reason="Never" />
+    <disable_collisions link1="head_1" link2="left_leg_4" reason="Never" />
+    <disable_collisions link1="head_1" link2="left_leg_5" reason="Never" />
+    <disable_collisions link1="head_1" link2="right_hand_1" reason="Never" />
+    <disable_collisions link1="head_1" link2="right_leg_1" reason="Never" />
+    <disable_collisions link1="head_1" link2="right_leg_2" reason="Never" />
+    <disable_collisions link1="head_1" link2="right_leg_3" reason="Never" />
+    <disable_collisions link1="head_1" link2="right_leg_4" reason="Never" />
+    <disable_collisions link1="head_1" link2="right_leg_5" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="left_hand_2" reason="Adjacent" />
+    <disable_collisions link1="left_hand_1" link2="left_hand_3" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="left_leg_1" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="left_leg_2" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="left_leg_3" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="left_leg_4" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="left_leg_5" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="right_hand_1" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="right_hand_2" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="right_hand_3" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="right_leg_1" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="right_leg_2" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="right_leg_3" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="right_leg_4" reason="Never" />
+    <disable_collisions link1="left_hand_1" link2="right_leg_5" reason="Never" />
+    <disable_collisions link1="left_hand_2" link2="left_hand_3" reason="Adjacent" />
+    <disable_collisions link1="left_hand_2" link2="right_hand_1" reason="Never" />
+    <disable_collisions link1="left_leg_1" link2="left_leg_2" reason="Adjacent" />
+    <disable_collisions link1="left_leg_1" link2="left_leg_3" reason="Never" />
+    <disable_collisions link1="left_leg_1" link2="right_hand_1" reason="Never" />
+    <disable_collisions link1="left_leg_2" link2="left_leg_3" reason="Adjacent" />
+    <disable_collisions link1="left_leg_2" link2="left_leg_4" reason="Never" />
+    <disable_collisions link1="left_leg_2" link2="right_hand_1" reason="Never" />
+    <disable_collisions link1="left_leg_3" link2="left_leg_4" reason="Adjacent" />
+    <disable_collisions link1="left_leg_3" link2="right_hand_1" reason="Never" />
+    <disable_collisions link1="left_leg_4" link2="left_leg_5" reason="Adjacent" />
+    <disable_collisions link1="left_leg_4" link2="right_hand_1" reason="Never" />
+    <disable_collisions link1="left_leg_5" link2="right_hand_1" reason="Never" />
+    <disable_collisions link1="right_hand_1" link2="right_hand_2" reason="Adjacent" />
+    <disable_collisions link1="right_hand_1" link2="right_hand_3" reason="Never" />
+    <disable_collisions link1="right_hand_1" link2="right_leg_1" reason="Never" />
+    <disable_collisions link1="right_hand_1" link2="right_leg_2" reason="Never" />
+    <disable_collisions link1="right_hand_1" link2="right_leg_3" reason="Never" />
+    <disable_collisions link1="right_hand_1" link2="right_leg_4" reason="Never" />
+    <disable_collisions link1="right_hand_1" link2="right_leg_5" reason="Never" />
+    <disable_collisions link1="right_hand_2" link2="right_hand_3" reason="Adjacent" />
+    <disable_collisions link1="right_leg_1" link2="right_leg_2" reason="Adjacent" />
+    <disable_collisions link1="right_leg_1" link2="right_leg_3" reason="Never" />
+    <disable_collisions link1="right_leg_2" link2="right_leg_3" reason="Adjacent" />
+    <disable_collisions link1="right_leg_2" link2="right_leg_4" reason="Never" />
+    <disable_collisions link1="right_leg_3" link2="right_leg_4" reason="Adjacent" />
+    <disable_collisions link1="right_leg_4" link2="right_leg_5" reason="Adjacent" />
+</robot>
